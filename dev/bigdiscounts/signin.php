@@ -6,22 +6,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$email = $_POST['email'];
 	$password = $_POST['pwd'];
 
-	$sql = "SELECT * FROM vendors where email = '$email' AND password = '$password'";
+	$sql = "SELECT * FROM retailers where email = '$email' AND password = '$password'";
 
-  $result = $conn->query($sql);
+  	$result = $conn->query($sql);
 
-  if($result->num_rows === 1) {
-    $json = array("status" => 200, "message" => "Success", "vid" => $row["vid"]);
-  }
-  else {
-    $json = array("status" => 400, "message" => "User not found");
-  }
-
-} else {
-  $json = array("status" => 400, "message" => "Request method not accepted");
+  	if($result->num_rows === 1) {
+    	$_SESSION["useremail"] = $email;
+  	}
+  	else {
+    	header("Location: ../../retailer/login.php");
+  	}
 }
-
-/* Output header */
-  header('Content-type: application/json');
-  echo json_encode($json);
 ?>

@@ -1,29 +1,20 @@
 <?php
-include './cors.php';
+include './connect.php';
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 	// Get data
-	$name = $_POST['name'];
-  $shop = $_POST['shop'];
-  $address = $_POST['address'];
+	$name = $_POST['username'];
+  	$shop = $_POST['shop'];
+  	$address = $_POST['address'];
 	$email = $_POST['email'];
-	$password = $_POST['pwd'];
+	$password = $_POST['password'];
 	$vid = uniqid("VD");
 
-	$sql = "INSERT INTO vendors(vid, name, shop, address, email, password)
+	$sql = "INSERT INTO retailers(vid, username, shop, address, email, password)
           VALUES ('$vid', '$name', '$shop', '$address', '$email', '$password')";
 
-  if($conn->query($sql)){
-		$json = array("status" => 200, "message" => "Success");
-	}else{
-		$json = array("status" => 400, "message" => $conn->error);
+  	if($conn->query($sql)){
+		header('Location: ../../index.php?register=200');
 	}
-}else{
-	$json = array("status" => 400, "message" => "Request method not accepted");
 }
-
-/* Output header */
-	// header('Content-type: application/json');
-	header('Location: ../../retailer/register-success.php');
-	echo json_encode($json);
 ?>
