@@ -1,25 +1,25 @@
 <?php
     include './cors.php';
     include './credentials.php';
-
     // Suppress warnings
-    // error_reporting(0);
+    error_reporting(0);
 
-    $pid = $_GET["pid"];
-
-    // The region you are interested in
+    $searchIndex = "Electronics";
+    $keywords = $_GET["keyword"];
+    // Region
     $endpoint = "webservices.amazon.in";
 
     $uri = "/onca/xml";
 
     $params = array(
         "Service" => "AWSECommerceService",
-        "Operation" => "ItemLookup",
+        "Operation" => "ItemSearch",
         "AWSAccessKeyId" => "AKIAJDFOBDG56PTMTDDQ",
         "AssociateTag" => "rohananand-21",
-        "ItemId" => $pid,
-        "IdType" => "ASIN",
-        "ResponseGroup" => "Images,ItemAttributes,Offers"
+        "SearchIndex" => $searchIndex,
+        "ResponseGroup" => "Images,ItemAttributes,Offers",
+        "Sort" => "relevancerank",
+        "Keywords" => $keywords
     );
 
     // Set current timestamp if not set
@@ -48,8 +48,17 @@
     // Generate the signed URL
     $request_url = 'http://'.$endpoint.$uri.'?'.$canonical_query_string.'&Signature='.rawurlencode($signature);
 
+    // echo $request_url;
+
     $response = file_get_contents($request_url);
     $parsed_xml = simplexml_load_string($response);
+
+    // Verify Request
+    foreach($parsed_xml->OperationRequest->Errors->Error as $error){
+        echo "Error code: " . $error->Code . "\r\n";
+        echo $error->Message . "\r\n";
+        echo "\r\n";
+    }
 
     echo json_encode($parsed_xml);
 ?>
