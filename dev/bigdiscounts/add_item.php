@@ -6,7 +6,7 @@
   $discount = $_GET["discount"];
   $goal = $_GET["goal"];
 
-  $sql = "INSERT INTO bargain_items(pid,vendorid,discount,goal) values('$pid','$vendor_id','$discount','$goal')";
+  $sql = "INSERT INTO bargain_items(pid,vendorid,discount,goal) values('$pid','$vendor_id',$discount,$goal)";
 
   if($conn->query($sql)){
     $obj -> status = 200;
