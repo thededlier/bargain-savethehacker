@@ -23,6 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 }
 
 /* Output header */
-	header('Content-type: application/json');
+	// header('Content-type: application/json');
+	header('Location: ../../retailer/register-success.php');
 	echo json_encode($json);
 ?>
