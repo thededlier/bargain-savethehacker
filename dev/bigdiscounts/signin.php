@@ -1,5 +1,5 @@
 <?php
-include './cors.php';
+include './connect.php';
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 	// Get data
@@ -12,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   	if($result->num_rows === 1) {
     	$_SESSION["useremail"] = $email;
+		header("Location: ../../retailers/index.php");
   	}
   	else {
     	header("Location: ../../retailer/login.php");
