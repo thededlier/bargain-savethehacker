@@ -1,7 +1,6 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
-$conn = new mysqli("localhost","root","");
-mysqli_select_db($conn,'ionicandphp');
+$conn = new mysqli("localhost","root","root","bargain");
 
 ?>
