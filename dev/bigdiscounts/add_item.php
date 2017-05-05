@@ -1,4 +1,6 @@
 <?php
+  include '../cors.php';
+
   $pid = $_GET["pid"];
   $vendor_id = $_GET["vid"];
   $discount = $_GET["discount"];
@@ -12,7 +14,7 @@
     $obj -> pid = $pid;
     $obj -> discount = $discount;
   } else {
-    $obj -> status = 100;
+    $obj -> status = 400;
     $obj -> message = $conn->error;
     $obj -> pid = $pid;
     $obj -> discount = $discount;
