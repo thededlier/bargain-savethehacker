@@ -76,7 +76,7 @@ function itemSearch($searchIndex, $keywords) {
                             '<div class="card-controls">' .
                                 '<form action="" method="POST">' .
                                     '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
-                                    '<button class="btn btn-primary compare-button" type="submit" name="compare-button">Add to Stock</button>' .
+                                    '<button class="btn btn-primary" type="submit" name="compare-button">Add to Stock</button>' .
                                     '<a class="btn btn-default" href="show-details.php?pid='.$current->ASIN.'" name="lookup-button">See Details</a>'.
                                 '</form>' .
                             '</div>' .
