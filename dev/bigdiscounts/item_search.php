@@ -64,7 +64,7 @@ function itemSearch($searchIndex, $keywords) {
     $html = "";
 
     foreach($parsed_xml->Items->Item as $current) {
-        $html =    
+        $html =
         '<div class="item  col-xs-4 col-md-4">' .
             '<div class="thumbnail">' .
             '<div class="img-container">' .
@@ -80,7 +80,7 @@ function itemSearch($searchIndex, $keywords) {
                         '<form action="" method="POST">' .
                                     '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
                                     '<button class="btn btn-primary" type="submit" name="compare-button">Add to Stock</button>' .
-                                    '<a class="btn btn-default" href="show-details.php?pid='.$current->ASIN.'" name="lookup-button">See Details</a>'.
+                                    '<a class="btn btn-default" href="./details.php?pid='.$current->ASIN.'" name="lookup-button">See Details</a>'.
                                 '</form>' .
                         '</div>' .
                     '</div>' .
@@ -111,7 +111,7 @@ function itemSearch($searchIndex, $keywords) {
 
 
 
-                    
+
         echo $html;
     }
 }
