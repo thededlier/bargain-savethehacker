@@ -36,6 +36,8 @@
 		<script src="https://use.fontawesome.com/ab12edd70a.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
     </head>
 
 	<body>
@@ -123,12 +125,12 @@
                 if($status == "success") {
                     ?>
                     <script>
-                        alert("Success");
+                        swal("Success!", "", "success")
                     </script>
                 <?php } else {
                     ?>
                     <script>
-                        alert("Failed");
+                        sweetAlert("Failed", "", "error");
                     </script>
                 <?php }
             }

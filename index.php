@@ -22,6 +22,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -44,9 +46,12 @@
             if($reg_check ==  200) {
     ?>
         <script>
-            alert("Your account was registered successfully");
+            swal("success!", "Your account is been registered!", "success")
         </script>
     <?php } }?>
+    <script>
+            swal("success!", "Your account is been registered!", "success")
+        </script>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
