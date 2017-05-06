@@ -1,0 +1,5 @@
+.product-title-short {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
