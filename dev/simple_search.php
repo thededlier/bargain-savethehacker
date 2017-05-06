@@ -96,7 +96,7 @@ function simpleSearch($searchIndex, $keywords) {
                             '<div class="card-controls">' .
                                 '<form action="./process/compare/compare-load.php" method="POST">' .
                                     '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
-                                    '<center><a class="btn btn-danger" href=showProdDetails.php?pid='.$current->ASIN.' name="lookup-button">See Details</a>' .
+                                    '<center><a class="btn btn-danger" href=details.php?pid='.$current->ASIN.' name="lookup-button">See Details</a>' .
                                     '</center>'.
                                 '</form>' .
                             '</div>' .

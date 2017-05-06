@@ -77,5 +77,8 @@
             </div>
             </div>
 		</div>
+        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+        <script src="./js/firebase.js"></script>
+
 	</body>
 </html>

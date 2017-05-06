@@ -11,7 +11,8 @@ firebase.initializeApp(config);
 
 function fblogin() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    provider.addScope('email');
+    provider.addScope('public_profile');
+
     provider.setCustomParameters({
         'display': 'popup'
     });
@@ -22,6 +23,8 @@ function fblogin() {
         // The signed-in user info.
         var user = result.user;
         // ...
+        console.log(user);
+        console.log("UID : " + user.providerData["0"].uid);
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -33,3 +36,14 @@ function fblogin() {
         // ...
     });
 }
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(user);
+    document.getElementById("uid").innerHTML = user.displayName;
+
+    document.getElementById("uid").value = user.providerData["0"].uid;
+  } else {
+    // No user is signed in.
+  }
+});

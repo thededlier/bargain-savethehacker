@@ -65,7 +65,7 @@
                     <ul class="nav navbar-nav" style="float: right;">
                         <li class="active"><a href="#"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                         <li><a href="./retailer/login.html"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Retailer</a></li>
-                        <li><a onclick="fblogin()"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> SignUp/SignIn</a></li>
+                        <li><a onclick="fblogin()"><span class="glyphicon glyphicon-off" aria-hidden="true"></span><span id="uid"> SignUp/SignIn</span></a></li>
                     </ul>
                 </div>
             </div>
