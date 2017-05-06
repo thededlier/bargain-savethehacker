@@ -64,7 +64,7 @@ function itemSearch($searchIndex, $keywords) {
     $html = "";
 
     foreach($parsed_xml->Items->Item as $current) {
-        $html =
+        $html .=
         '<div class="item  col-xs-4 col-md-4">' .
             '<div class="thumbnail">' .
             '<div class="img-container">' .
@@ -109,10 +109,8 @@ function itemSearch($searchIndex, $keywords) {
         //                 '</div>' .
         //             '</div>';
 
-
-
-
-        echo $html;
     }
+    echo $html;
+
 }
 ?>

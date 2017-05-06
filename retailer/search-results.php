@@ -68,9 +68,9 @@
 		<div class="row">
             <div class="container">
 				<?php
-					if(isset($_POST["simple_search"])) {
-						$searchIndex = $_POST["category"];
-						$keywords = $_POST["search_item"];
+					if(isset($_GET["simple_search"])) {
+						$searchIndex = $_GET["category"];
+						$keywords = $_GET["search_item"];
 						itemSearch($searchIndex, $keywords);
 					}
 				?>

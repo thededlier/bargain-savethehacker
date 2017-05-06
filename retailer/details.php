@@ -37,6 +37,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
     </head>
 
@@ -116,6 +118,16 @@
 				<div style="margin-left: 30px">
                 <a class="btn btn-primary" href="<?php echo '../dev/bigdiscounts/add_item.php?pid=' . $pid; ?>">Add to Stock</a>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#discountModal">Offer Discount</button>
+                <?php
+                    $sql = "SELECT * from discounts where pid = '$pid'";
+
+                    $result = $conn->query($sql);
+
+                    if($result->num_rows == 0) {
+                        echo '<h3>No discount demand</h3>';
+                    }
+                ?>
+                <div id="chart_div"></div>
             </div>
 		</div>
 
@@ -169,10 +181,66 @@
                             </div>
                         </form>
                     </div>
-                    <div class="modal-footer">
-                    </div>
                 </div>
             </div>
         </div>
+        <script>
+            google.charts.load('current', {packages: ['corechart', 'bar']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                      ['Date', 'Price'],
+                      <?php
+                        $count = array(0,0,0,0,0,0,0,0,0,0);
+
+                        while ($row = $result->fetch_assoc()) {
+                            $num = $row['discount'];
+
+                            if($num <10)
+                                $count[0]++;
+                            else if($num >=10 && $num<20)
+                                $count[1]++;
+                            else if($num >=20 && $num<30)
+                                $count[2]++;
+                            else if($num >=30 && $num<40)
+                                $count[3]++;
+                            else if($num >=40 && $num<50)
+                                $count[4]++;
+                            else if($num >=50 && $num<60)
+                                $count[5]++;
+                            else if($num >=60 && $num<70)
+                                $count[6]++;
+                            else if($num >=70 && $num<80)
+                                $count[7]++;
+                            else if($num >=80 && $num<90)
+                                $count[8]++;
+                            else if($num >=90 && $num<100)
+                                $count[9]++;
+                            echo "['".$row['timestamp']."',".$num."],";
+                        }
+                            echo "['0-10'," . $count[0] . "],";
+                            echo "['10-20'," . $count[1] . "],";
+                            echo "['20-30'," . $count[2] . "],";
+                            echo "['30-40'," . $count[3] . "],";
+                            echo "['40-50'," . $count[4] . "],";
+                            echo "['50-60'," . $count[5] . "],";
+                            echo "['60-70'," . $count[6] . "],";
+                            echo "['70-80'," . $count[7] . "],";
+                            echo "['80-90'," . $count[8] . "],";
+                            echo "['90-100'," . $count[9] . "],";
+                      ?>
+                    ]);
+
+                    var options = {
+                      title: 'Product Price Monitor For past 1 year',
+                      legend: { position: 'bottom' }
+                    };
+                    var chart = new google.visualization.ColumnChart(
+                document.getElementById('chart_div'));
+
+              chart.draw(data, options);
+            }
+        </script>
 	</body>
 </html>
