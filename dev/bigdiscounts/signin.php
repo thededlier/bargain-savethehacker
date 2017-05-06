@@ -1,10 +1,12 @@
 <?php
 include './connect.php';
 
+session_start();
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 	// Get data
 	$email = $_POST['email'];
-	$password = $_POST['pwd'];
+	$password = $_POST['password'];
 
 	$sql = "SELECT * FROM retailers where email = '$email' AND password = '$password'";
 
@@ -12,10 +14,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   	if($result->num_rows === 1) {
     	$_SESSION["useremail"] = $email;
-		header("Location: ../../retailers/index.php");
+		header("Location: ../../retailer/index.php");
   	}
   	else {
-    	header("Location: ../../retailer/login.php");
+    	header("Location: ../../retailer/login.html");
   	}
 }
 ?>
