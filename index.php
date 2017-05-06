@@ -1,14 +1,3 @@
-<?php
-    if($_SERVER["REQUEST_METHOD"]=="GET") {
-        $reg_check = $_GET["register"];
-        if($reg_check ==  200) {
-?>
-    <script>
-        alert("Your account was registered successfully");
-    </script>
-<?php } }?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +35,18 @@
 </head>
 
 <body id="page-top">
+    <?php
 
+        error_reporting(0);
+
+        if($_SERVER["REQUEST_METHOD"]=="GET") {
+            $reg_check = $_GET["register"];
+            if($reg_check ==  200) {
+    ?>
+        <script>
+            alert("Your account was registered successfully");
+        </script>
+    <?php } }?>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,14 +86,17 @@
 	<div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <div id="imaginary_container">
-                <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" >
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
+                <form action="./search-results.php" method="GET">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control"  name="search_item" placeholder="Search" >
+
+                        <span class="input-group-addon">
+                            <button type="submit" name="simple_search">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
             </div>
         </div>
 	</div>
