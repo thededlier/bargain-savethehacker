@@ -15,10 +15,7 @@
 		<title>bar-gain</title>
 
 		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Crete+Round|Revalia|Arvo|Pavanam" rel="stylesheet">
-		<link href="css/mystyle.css" rel="stylesheet">
-        <link href="css/mystyles.css" rel="stylesheet">
+    	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,6 +64,7 @@
 				</div>
 			</div>
         </nav>
+        <div style="margin-top: 150px">
 
 		<div class="row">
             <div class="container">
@@ -77,6 +75,7 @@
 						itemSearch($searchIndex, $keywords);
 					}
 				?>
+            </div>
             </div>
 		</div>
 	</body>

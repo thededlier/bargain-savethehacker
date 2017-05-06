@@ -64,24 +64,54 @@ function itemSearch($searchIndex, $keywords) {
     $html = "";
 
     foreach($parsed_xml->Items->Item as $current) {
-        $html =     '<div class="col-md-4">' .
-                        '<div class="card">' .
-                            '<div class="img-container">' .
-                                '<img src="' . $current->LargeImage->URL . '" width="304" height="236">' .
-                            '</div>' .
-                            '<div class="card-content">' .
-                                '<h4 class="product-title-short"><a href="' . $current->DetailPageURL . '">' . $current->ItemAttributes->Title . '</a></h4>' .
-                                '<h5>' . 'Lowest Price : <b>' . $current->OfferSummary->LowestNewPrice->FormattedPrice . '</b></h5>' .
-                            '</div>' .
-                            '<div class="card-controls">' .
-                                '<form action="" method="POST">' .
+        $html =    
+        '<div class="item  col-xs-4 col-md-4">' .
+            '<div class="thumbnail">' .
+            '<div class="img-container">' .
+                '<img src="' . $current->LargeImage->URL . '" width=304px height=236>' .
+                '</div>'.
+                '<div class="caption">' .
+                    '<h4 class="product-title-short"><a href="' . $current->DetailPageURL . '">' . $current->ItemAttributes->Title . '</a></h4>' .
+                    '<div class="row">' .
+                        '<div class="col-xs-12 col-md-12">' .
+                        '<h5>' . 'Lowest Price : <b>' . $current->OfferSummary->LowestNewPrice->FormattedPrice . '</b></h5>' .
+                        '</div>' .
+                        '<div class="col-xs-12 col-md-12">' .
+                        '<form action="" method="POST">' .
                                     '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
                                     '<button class="btn btn-primary" type="submit" name="compare-button">Add to Stock</button>' .
                                     '<a class="btn btn-default" href="show-details.php?pid='.$current->ASIN.'" name="lookup-button">See Details</a>'.
                                 '</form>' .
-                            '</div>' .
                         '</div>' .
-                    '</div>';
+                    '</div>' .
+                '</div>' .
+            '</div>' .
+        '</div>';
+
+
+
+        //                  '<div class="col-md-4">' .
+        //                 '<div class="card">' .
+        //                     '<div class="img-container">' .
+        //                         '<img src="' . $current->LargeImage->URL . '" width="304" height="236">' .
+        //                     '</div>' .
+        //                     '<div class="card-content">' .
+        //                         '<h4 class="product-title-short"><a href="' . $current->DetailPageURL . '">' . $current->ItemAttributes->Title . '</a></h4>' .
+        //                         '<h5>' . 'Lowest Price : <b>' . $current->OfferSummary->LowestNewPrice->FormattedPrice . '</b></h5>' .
+        //                     '</div>' .
+        //                     '<div class="card-controls">' .
+        //                         '<form action="" method="POST">' .
+        //                             '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
+        //                             '<button class="btn btn-primary compare-button" type="submit" name="compare-button">Add to Stock</button>' .
+        //                             '<a class="btn btn-default" href="show-details.php?pid='.$current->ASIN.'" name="lookup-button">See Details</a>'.
+        //                         '</form>' .
+        //                     '</div>' .
+        //                 '</div>' .
+        //             '</div>';
+
+
+
+                    
         echo $html;
     }
 }
