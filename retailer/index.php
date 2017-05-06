@@ -43,7 +43,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" style="float: right;">
                         <li class="active"><a href="index.php"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                        <li><a href="./retailer/login.html"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Retailer</a></li>
+                        <li><a href="../index.php"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Log Out</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> SignUp/SignIn</a></li>
                     </ul>
                 </div>

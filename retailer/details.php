@@ -36,10 +36,10 @@
 		<script src="https://use.fontawesome.com/ab12edd70a.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="js/sweetalert.min.js"></script>
+        <script src="../js/sweetalert.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+    <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
     </head>
 
 	<body>
@@ -57,7 +57,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" style="float: right;">
                         <li class="active"><a href="index.php"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                        <li><a href="./retailer/login.html"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Retailer</a></li>
+                        <li><a href="../index.php"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Retailer</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> SignUp/SignIn</a></li>
                     </ul>
                 </div>
