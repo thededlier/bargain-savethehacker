@@ -80,7 +80,7 @@
 					echo itemLookup($pid);
 				?>
                 <a class="btn btn-primary" href="<?php echo '../dev/bigdiscounts/add_item.php?pid=' . $pid; ?>">Add to Stock</a>
-                <button class="btn btn-default">Offer Discount</button>
+                <a class="btn btn-default">Offer Discount</a>
             </div>
 		</div>
 
