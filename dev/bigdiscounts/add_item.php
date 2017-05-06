@@ -1,24 +1,16 @@
 <?php
-  include '../cors.php';
+    include './connect.php';
 
-  $pid = $_GET["pid"];
-  $vendor_id = $_GET["vid"];
-  $discount = $_GET["discount"];
-  $goal = $_GET["goal"];
+    session_start();
 
-  $sql = "INSERT INTO bargain_items(pid,vendorid,discount,goal) values('$pid','$vendor_id',$discount,$goal)";
+    $pid = $_GET["pid"];
+    $useremail = $_SESSION['useremail'];
 
-  if($conn->query($sql)){
-    $obj -> status = 200;
-    $obj -> message = "Success";
-    $obj -> pid = $pid;
-    $obj -> discount = $discount;
-  } else {
-    $obj -> status = 400;
-    $obj -> message = $conn->error;
-    $obj -> pid = $pid;
-    $obj -> discount = $discount;
-  }
+    $sql = "UPDATE retailers SET products = CONCAT(products, '$pid,') where email = '$useremail'";
 
-  echo json_encode($obj);
+    if($conn->query($sql)){
+        header("Location: ../../retailer/details.php?pid=" . $pid . "&status=" . "success");
+    } else {
+        header("Location: ../../retailer/details.php?pid=" . $pid . "&status=" . "fail");
+    }
 ?>

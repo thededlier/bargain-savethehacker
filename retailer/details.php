@@ -1,6 +1,8 @@
 <?php
     include '../dev/bigdiscounts/item_lookup.php';
 
+    session_start();
+
     if($_SERVER["REQUEST_METHOD"] == "GET") {
         $pid = $_GET["pid"];
     } else {
@@ -77,7 +79,26 @@
 				<?php
 					echo itemLookup($pid);
 				?>
+                <a class="btn btn-primary" href="<?php echo '../dev/bigdiscounts/add_item.php?pid=' . $pid; ?>">Add to Stock</a>
+                <button class="btn btn-default">Offer Discount</button>
             </div>
 		</div>
+
+        <?php
+            if(isset($_GET["status"])) {
+                $status = $_GET["status"];
+                if($status == "success") {
+                    ?>
+                    <script>
+                        alert("Success");
+                    </script>
+                <?php } else {
+                    ?>
+                    <script>
+                        alert("Failed");
+                    </script>
+                <?php }
+            }
+        ?>
 	</body>
 </html>

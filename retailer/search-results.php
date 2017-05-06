@@ -1,6 +1,7 @@
 <?php
     include '../dev/bigdiscounts/item_search.php';
 
+    session_start();
 ?>
 
 <html>
