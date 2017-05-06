@@ -3,7 +3,7 @@
 
     $uid = $_REQUEST["uid"];
     $pid = $_REQUEST["pid"];
-    $discount = $_REQUEST["discount"];
+    $discount = $_REQUEST["vemail"];
 
     $sql = "SELECT * from discounts where uid = $uid and pid = '$pid'";
 
