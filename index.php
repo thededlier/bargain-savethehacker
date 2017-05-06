@@ -36,6 +36,7 @@
 	</head>
 
 	<body>
+
 	<?php
 
         error_reporting(0);
@@ -66,7 +67,7 @@
                     <ul class="nav navbar-nav" style="float: right;">
                         <li class="active"><a href="#"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                         <li><a href="./retailer/login.html"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Retailer</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> SignUp/SignIn</a></li>
+                        <li><a onclick="fblogin()"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> SignUp/SignIn</a></li>
                     </ul>
                 </div>
             </div>
@@ -108,7 +109,7 @@
       <div class="item">
         <img src="img/header.jpg" alt="Chicago" style="width:100%;">
       </div>
-    
+
       <div class="item">
         <img src="img/1.jpg" alt="New york" style="width:100%;">
       </div>
@@ -125,6 +126,9 @@
     </a>
   </div>
 </div>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script src="./js/firebase.js"></script>
+
         <!-- carousel end -->
 </body>
 </html>

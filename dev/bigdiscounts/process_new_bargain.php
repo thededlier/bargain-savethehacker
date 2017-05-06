@@ -3,7 +3,7 @@
 
     session_start();
 
-    $pid = $_GET["pid"];
+    $pid = $_GET["product_id"];
     $email = $_SESSION['useremail'];
     $discount = $_GET["discount"];
     $goal = $_GET["goal"];

@@ -1,5 +1,6 @@
 <?php
     include '../dev/bigdiscounts/item_lookup.php';
+    include '../dev/bigdiscounts/connect.php';
 
     session_start();
 
@@ -8,6 +9,8 @@
     } else {
         header("Location: ./index.php");
     }
+
+    $email = $_SESSION["useremail"];
 ?>
 
 <html>
@@ -78,6 +81,35 @@
 
 		<div class="row">
             <div class="container">
+                <?php
+                    $sql  = "SELECT * FROM bargainbin where pid = '$pid' and vemail = '$email'";
+                    $result = $conn->query($sql);
+
+                    if($result->num_rows == 1) {
+                        $row = $result->fetch_assoc();
+
+                        $html =
+                            '<div class="table-responsive">' .
+                                '<table class="table-bordered">' .
+                                    '<thead>' .
+                                        '<th> PID </th>' .
+                                        '<th> Discount </th>' .
+                                        '<th> Goal </th>' .
+                                        '<th> Reach </th>' .
+                                    '</thead>' .
+                                    '<tbody>' .
+                                        '<tr>' .
+                                            '<td>' . $row["pid"] . '</td>' .
+                                            '<td>' . $row["discount"] . '%</td>' .
+                                            '<td>' . $row["goal"] . '</td>' .
+                                            '<td>' . $row["reach"] . '</td>' .
+                                        '</tr>' .
+                                    '</tbody>' .
+                                '</table>' .
+                            '</div>';
+                        echo $html;
+                    }
+                ?>
 				<?php
 					echo itemLookup($pid);
 				?>
@@ -118,21 +150,21 @@
                             <div class="col-md-11 col-lg-11 col-xs-11 center-block panel-login panel-white">
                                 <div class="form-group">
                                     <label for="pid">Product ID</label>
-                                    <input type="text" class="form-control" name="pid" id="pid" required="require" disabled>
+                                    <input type="text" class="form-control" name="product_id" id="pid" required="require" value="<?php echo $pid;?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="vemail">Vendor Email</label>
-                                    <input type="email" class="form-control" name="vemail" id="vemail" required="require">
+                                    <input type="email" class="form-control" name="vemail" id="vemail" required="require" value="<?php echo $email; ?>" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="discount">Discount</label>
-                                    <input type="number" class="form-control" name="discount" id="discount" required="require">
+                                    <input type="number" class="form-control" name="discount" id="discount" required="require" min=1 max=99>
                                 </div>
                                 <div class="form-group">
                                     <label for="goal">Goal</label>
-                                    <input type="number" class="form-control" name="goal" id="goal" required="require">
+                                    <input type="number" class="form-control" name="goal" id="goal" required="require" min=1>
                                 </div>
-                                <button class="btn btn-success btn-block" type="submit">Submit</button>
+                                <button class="btn btn-success" type="submit">Submit</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </form>

@@ -3,7 +3,7 @@
 
     session_start();
 
-    $pid = $_GET["pid"];
+    $pid = $_GET["product_id"];
     $useremail = $_SESSION['useremail'];
 
     $sql = "UPDATE retailers SET products = CONCAT(products, '$pid,') where email = '$useremail'";

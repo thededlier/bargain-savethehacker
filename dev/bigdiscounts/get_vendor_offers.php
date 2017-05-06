@@ -1,29 +1,26 @@
 <?php
 
-function get_vendor_products($email) {
+function get_vendor_offers($email) {
 
     $html = "";
 
     include '../dev/bigdiscounts/connect.php';
     include '../dev/credentials.php';
 
-    $sql = "SELECT * from retailers where email = '$email'";
+    $sql = "SELECT * from bargainbin where vemail = '$email'";
+    // error_reporting(0);
 
     $result = $conn->query($sql);
 
-    if($result->num_rows === 1) {
-        $row = $result->fetch_assoc();
-
-        $pids = explode(',', $row["products"]);
-
-        foreach ($pids as $pid) {
-            // Suppress warnings
-            error_reporting(0);
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
 
             // The region you are interested in
             $endpoint = "webservices.amazon.in";
 
             $uri = "/onca/xml";
+
+            $pid = $row["pid"];
 
             $params = array(
                 "Service" => "AWSECommerceService",
@@ -79,7 +76,7 @@ function get_vendor_products($email) {
                 $attr .= '<li class="list-group-item">' . $itemFeature . '</li>';
             }
 
-            $html .=    '<div class="col-md-6">' .
+            $html .=    '<div class="col-md-12">' .
                             '<div class="card">' .
                                 '<div class="img-container">' .
                                     '<img src="' . $current->LargeImage->URL . '" width="304" height="236">' .
@@ -91,17 +88,14 @@ function get_vendor_products($email) {
                                 '<div class="card-controls">' .
                                     '<form action="" method="POST">' .
                                         '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
-                                        '<button class="btn btn-primary" type="submit" name="compare-button">Add to Stock</button>' .
                                         '<a class="btn btn-default" href="./details.php?pid='.$current->ASIN.'" name="lookup-button">See Details</a>'.
                                     '</form>' .
                                 '</div>' .
                             '</div>' .
                         '</div>';
 
-
-
+            }
         }
-    }
     return $html;
 }
 ?>

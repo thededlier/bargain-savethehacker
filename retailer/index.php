@@ -3,6 +3,7 @@
 
     $email =  $_SESSION["useremail"];
     include '../dev/bigdiscounts/get_vendor_products.php';
+    include '../dev/bigdiscounts/get_vendor_offers.php';
 ?>
 
 <html>
@@ -17,7 +18,7 @@
 
 		<!-- Bootstrap -->
 		<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+        <link href="../css/stylesheet.css" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -68,9 +69,13 @@
 
 		<div class="row">
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-8 col-xs-12">
                     <h3>Your Stock</h3>
                     <?php echo get_vendor_products($email); ?>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <h1>Your Offers</h1>
+                    <?php echo get_vendor_offers($email);?>
                 </div>
 				<?php
 					if(isset($_POST["simple_search"])) {
@@ -81,5 +86,7 @@
 				?>
             </div>
 		</div>
+
+        <hr/>
 	</body>
 </html>

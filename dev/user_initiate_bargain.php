@@ -1,9 +1,9 @@
 <?php
     include './cors.php';
 
-    $uid = $_POST["uid"];
-    $pid = $_POST["pid"];
-    $discount = $_POST["discount"];
+    $uid = $_REQUEST["uid"];
+    $pid = $_REQUEST["pid"];
+    $discount = $_REQUEST["discount"];
 
     $sql = "SELECT * from discounts where uid = '$uid' and pid = '$pid'";
 
