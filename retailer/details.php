@@ -23,6 +23,9 @@
 		<!-- Bootstrap -->
 		<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -100,5 +103,9 @@
                 <?php }
             }
         ?>
+        <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Theme JavaScript -->
+    <script src="js/creative.js"></script>
 	</body>
 </html>
