@@ -51,5 +51,6 @@
     $response = file_get_contents($request_url);
     $parsed_xml = simplexml_load_string($response);
 
-    echo json_encode($parsed_xml);
+    $data=$parsed_xml;
+    echo json_encode($data);
 ?>

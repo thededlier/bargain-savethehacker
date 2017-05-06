@@ -1,4 +1,7 @@
 <?php
+
+	header("Access-Control-Allow-Origin: *");
+
     include './cors.php';
     include './credentials.php';
     // Suppress warnings
@@ -60,5 +63,53 @@
         echo "\r\n";
     }
 
-    echo json_encode($parsed_xml);
+       // $result =array(array('price' => 35 ));
+
+       // echo json_encode($result);
+
+    // $result = array($parsed_xml);
+
+    // echo json_encode($result);
+
+
+ //    $data = array(
+	// 	array('id' => '1','first_name' => 'Cynthia'),
+	// 	array('id' => '2','first_name' => 'Keith'),
+	// 	array('id' => '3','first_name' => 'Robert'),
+	// 	array('id' => '4','first_name' => 'Theresa'),
+	// 	array('id' => '5','first_name' => 'Margaret')
+	// );
+
+ //    echo json_encode($data);
+
+    $data=$parsed_xml->Items;
+	echo json_encode($data);    
+
+    // foreach($parsed_xml->Items->Item as $current) {
+    //     $html =     '<div class="col-md-4">' .
+    //                     '<div class="card" style="padding:25px;">' .
+    //                         '<div class="img-container">' .
+    //                             '<img src="' . $current->LargeImage->URL . '" width="304" height="236">' .
+    //                         '</div>' .
+    //                         '<div class="card-content">' .
+    //                             '<center><h4 class="product-title-short"><a href="' . $current->DetailPageURL . '">' . $current->ItemAttributes->Title . '</a></h4>' .
+    //                             '<h5>' . 'Lowest Price : <b>' . $current->OfferSummary->LowestNewPrice->FormattedPrice . '</b></h5></center>' .
+    //                         '</div>' .
+    //                         '<div class="card-controls">' .
+    //                             '<form action="./process/compare/compare-load.php" method="POST">' .
+    //                                 '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
+    //                                 '<center><button class="btn btn-danger compare-button" type="submit" name="compare-button">Compare</button>' .
+    //                                 '<a class="btn btn-dark" href=showProdDetails.php?pid='.$current->ASIN.' name="lookup-button">See Details</a></center>'.
+    //                             '</form>' .
+    //                         '</div>' .
+    //                     '</div>' .
+    //                 '</div>';
+    //     echo $html;
+
+    //     $data = array( array('imageURL' => $current->LargeImage->URL,'detailsPage'=> $current->DetailPageURL,'prod_id' => $current->ASIN));
+    // }
+    // echo json_encode($data);
+
+
+
 ?>
