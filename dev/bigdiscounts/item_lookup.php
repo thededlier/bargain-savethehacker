@@ -69,8 +69,10 @@ function itemLookup($pid) {
     }
 
     $html =     '<div class="card col-md-11">' .
+                    '<div class ="card">'.
                     '<div class="img-containter-big">' .
                         '<img src="' . $current->LargeImage->URL . '" class="img-responsive">' .
+                    '</div>' .
                     '</div>' .
                     '<div class="col-md-12">' .
                         '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
