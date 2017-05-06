@@ -1,6 +1,6 @@
 <?php
     include './cors.php';
-    
+
     $uid = $_POST["uid"];
     $pid = $_POST["pid"];
     $discount = $_POST["discount"];

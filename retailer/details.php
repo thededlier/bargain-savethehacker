@@ -31,7 +31,9 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		<script src="https://use.fontawesome.com/ab12edd70a.js"></script>
-	</head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
 
 	<body>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -80,7 +82,7 @@
 				?>
 				<div style="margin-left: 30px">
                 <a class="btn btn-primary" href="<?php echo '../dev/bigdiscounts/add_item.php?pid=' . $pid; ?>">Add to Stock</a>
-                <a class="btn btn-default">Offer Discount</a>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#discountModal">Offer Discount</button>
             </div>
 		</div>
 
@@ -100,5 +102,44 @@
                 <?php }
             }
         ?>
+
+        <div id="discountModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Offer a discount in the Bargainbin</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="../dev/bigdiscounts/process_new_bargain.php" method="GET">
+                            <div class="col-md-11 col-lg-11 col-xs-11 center-block panel-login panel-white">
+                                <div class="form-group">
+                                    <label for="pid">Product ID</label>
+                                    <input type="text" class="form-control" name="pid" id="pid" required="require" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vemail">Vendor Email</label>
+                                    <input type="email" class="form-control" name="vemail" id="vemail" required="require">
+                                </div>
+                                <div class="form-group">
+                                    <label for="discount">Discount</label>
+                                    <input type="number" class="form-control" name="discount" id="discount" required="require">
+                                </div>
+                                <div class="form-group">
+                                    <label for="goal">Goal</label>
+                                    <input type="number" class="form-control" name="goal" id="goal" required="require">
+                                </div>
+                                <button class="btn btn-success btn-block" type="submit">Submit</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
 	</body>
 </html>

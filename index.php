@@ -64,7 +64,7 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="./retailer/login.html">Retailers</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="signup.html">Signup</a>
