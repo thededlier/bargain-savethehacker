@@ -49,9 +49,7 @@
             swal("success!", "Your account is been registered!", "success")
         </script>
     <?php } }?>
-    <script>
-            swal("success!", "Your account is been registered!", "success")
-        </script>
+  
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -104,14 +102,23 @@
     <div class="carousel-inner">
       <div class="item active">
         <img src="img/12.jpg" alt="Los Angeles" style="width:100%;">
+        
       </div>
 
       <div class="item">
         <img src="img/header.jpg" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h1 style="color: black">VIEW PRICE LINES</h1>
+          <h3 style="color: black">Know exactly when the price will be at Your Desired Price!</h3>
+        </div>
       </div>
 
       <div class="item">
         <img src="img/1.jpg" alt="New york" style="width:100%;">
+        <div class="carousel-caption">
+          <h1>WISH(LIST) FOR MASSIVE DISCOUNTS</h1>
+          <h3>Add to your wishlist to be part of mass buy-ins at major discounts!</h3>
+        </div>
       </div>
     </div>
 
