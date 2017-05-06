@@ -77,7 +77,7 @@ function itemSearch($searchIndex, $keywords) {
                         '<h5>' . 'Lowest Price : <b>' . $current->OfferSummary->LowestNewPrice->FormattedPrice . '</b></h5>' .
                         '</div>' .
                         '<div class="col-xs-12 col-md-12">' .
-                        '<form action="" method="POST">' .
+                        '<form action="../dev/bigdiscounts/add_item.php" method="GET">' .
                                     '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
                                     '<button class="btn btn-primary" type="submit" name="compare-button">Add to Stock</button>' .
                                     '<a class="btn btn-default" href="./details.php?pid='.$current->ASIN.'" name="lookup-button">See Details</a>'.
