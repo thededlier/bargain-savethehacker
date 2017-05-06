@@ -180,6 +180,8 @@
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </form>
+                        <div class="modal-footer">
+                        </div>
                     </div>
                 </div>
             </div>
