@@ -1,5 +1,6 @@
 <?php
     include '../dev/bigdiscounts/item_lookup.php';
+    include '../dev/bigdiscounts/connect.php';
 
     session_start();
 
@@ -78,6 +79,35 @@
 
 		<div class="row">
             <div class="container">
+                <?php
+                    $sql  = "SELECT * FROM bargainbin where pid = '$pid' and vemail = '$email'";
+                    $result = $conn->query($sql);
+
+                    if($result->num_rows == 1) {
+                        $row = $result->fetch_assoc();
+
+                        $html =
+                            '<div class="table-responsive">' .
+                                '<table class="table-bordered">' .
+                                    '<thead>' .
+                                        '<th> PID </th>' .
+                                        '<th> Discount </th>' .
+                                        '<th> Goal </th>' .
+                                        '<th> Reach </th>' .
+                                    '</thead>' .
+                                    '<tbody>' .
+                                        '<tr>' .
+                                            '<td>' . $row["pid"] . '</td>' .
+                                            '<td>' . $row["discount"] . '%</td>' .
+                                            '<td>' . $row["goal"] . '</td>' .
+                                            '<td>' . $row["reach"] . '</td>' .
+                                        '</tr>' .
+                                    '</tbody>' .
+                                '</table>' .
+                            '</div>';
+                        echo $html;
+                    }
+                ?>
 				<?php
 					echo itemLookup($pid);
 				?>
