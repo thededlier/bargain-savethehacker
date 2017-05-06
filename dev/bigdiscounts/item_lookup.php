@@ -2,10 +2,12 @@
 
 function itemLookup($pid) {
     include '../dev/credentials.php';
-
+    include '../dev/bigdiscounts/connect.php';
     // Suppress warnings
     error_reporting(0);
+    // session_start();
 
+    $email = $_SESSION["useremail"];
     // The region you are interested in
     $endpoint = "webservices.amazon.in";
 
@@ -68,6 +70,15 @@ function itemLookup($pid) {
         $attr .= '<li class="list-group-item">' . $itemFeature . '</li>';
     }
 
+    $sql  = "SELECT * FROM bargainbin where pid = '$pid' and vemail = '$email'";
+    $result = $conn->query($sql);
+
+    $discount = 0;
+
+    if($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $discount = $row["discount"];
+    }
     $html =     '<div class="card col-md-11">' .
                     '<div class ="card">'.
                     '<div class="col-md-6 img-containter-big">' .
@@ -78,12 +89,12 @@ function itemLookup($pid) {
                         '<input type="hidden" name="product_id" value="' . $current->ASIN . '">' .
                         '<h4><a href="' . $current->DetailPageURL . '">' . $current->ItemAttributes->Title . '</a></h4>' .
                         '<h5>' . 'Lowest Price : <b>' . $current->OfferSummary->LowestNewPrice->FormattedPrice . '</b></h5>' .
+                        '<h5>' . 'Your Price : <b> INR ' . $current->OfferSummary->LowestNewPrice->Amount * (100-$discount)/10000 . '</b></h5>' .
                         '<ul class="list-group">' .
                             $attr .
                         '</ul>' .
                     '</div>' .
                 '</div>' ;
-
 
     return $html;
 }

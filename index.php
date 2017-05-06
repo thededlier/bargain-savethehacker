@@ -34,6 +34,7 @@
 	</head>
 
 	<body>
+
 	<?php
 
         error_reporting(0);
@@ -103,7 +104,7 @@
       <div class="item">
         <img src="img/header.jpg" alt="Chicago" style="width:100%;">
       </div>
-    
+
       <div class="item">
         <img src="img/1.jpg" alt="New york" style="width:100%;">
       </div>
@@ -120,6 +121,9 @@
     </a>
   </div>
 </div>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script src="./js/firebase.js"></script>
+
         <!-- carousel end -->
 </body>
 </html>
