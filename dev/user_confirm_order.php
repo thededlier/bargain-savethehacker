@@ -7,7 +7,7 @@
 
     $sql = "UPDATE bargainbin set reach = reach + 1, uids = CONCAT(uids,'$uid,')  where pid = '$pid' and vemail = '$vemail'";
 
-    if($conn->query($sql));
+    if($conn->query($sql)){
         $response = array('status' => 200, 'message' => 'Updated');
     } else {
         $response = array('status' => 400, 'message' => 'Failed');

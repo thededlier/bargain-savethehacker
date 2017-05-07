@@ -4,7 +4,7 @@
     $uid = $_REQUEST["uid"];
     $pid = $_REQUEST["pid"];
     $vemail = $_REQUEST["vemail"];
-
+    $check = false;
     $sql = "SELECT * from bargainbin where pid = '$pid' and vemail = '$vemail'";
 
     $result = $conn->query($sql);
@@ -14,18 +14,18 @@
 
         $uid_list = explode(",", $row["uids"]);
 
-        foreach ($id as $uid_list) {
+        foreach ($uid_list as $id) {
             if($uid === $id) {
                 $check = true;
                 break;
             }
         }
     }
-    if($check == true);
+    if($check == true) {
         $response = array('status' => 200, 'message' => 'success', 'check' => 1);
     } else {
         $response = array('status' => 200, 'message' => 'success', 'check' => 0);
     }
 
-    echo array(json_encode($response));
+    echo json_encode($response);
 ?>

@@ -2,6 +2,7 @@
     session_start();
 
     $email =  $_SESSION["useremail"];
+    include '../dev/bigdiscounts/connect.php';
     include '../dev/bigdiscounts/get_vendor_products.php';
     include '../dev/bigdiscounts/get_vendor_offers.php';
 ?>
@@ -86,7 +87,7 @@
 				?>
             </div>
 		</div>
-
+        <?php include '../dev/bigdiscounts/notify_goal_reach.php'; ?>
         <hr/>
 	</body>
 </html>
