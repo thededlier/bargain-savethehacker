@@ -219,7 +219,7 @@
                                 $count[8]++;
                             else if($num >=90 && $num<100)
                                 $count[9]++;
-                            echo "['".$row['timestamp']."',".$num."],";
+                            // echo "['".$row['timestamp']."',".$num."],";
                         }
                             echo "['0-10'," . $count[0] . "],";
                             echo "['10-20'," . $count[1] . "],";
@@ -230,12 +230,12 @@
                             echo "['60-70'," . $count[6] . "],";
                             echo "['70-80'," . $count[7] . "],";
                             echo "['80-90'," . $count[8] . "],";
-                            echo "['90-100'," . $count[9] . "],";
+                            echo "['90-100'," . $count[9] . "]";
                       ?>
                     ]);
 
                     var options = {
-                      title: 'Product Price Monitor For past 1 year',
+                      title: 'Discounts Demanded by Users',
                       legend: { position: 'bottom' }
                     };
                     var chart = new google.visualization.ColumnChart(

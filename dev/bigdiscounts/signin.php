@@ -1,5 +1,5 @@
 <?php
-include './connect.php';
+include '../cors.php';
 
 session_start();
 

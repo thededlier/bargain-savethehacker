@@ -1,12 +1,6 @@
 <?php
-$servername = "localhost";
-$username   = "root";
-$password   = "";
-$dbname     = "bargain";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
+header("Access-Control-Allow-Origin: *");
+$conn = new mysqli("localhost","u636829368_barg","bargain");
+mysqli_select_db($conn,'u636829368_barg');
 ?>

@@ -2,7 +2,7 @@
 
 function simpleItemLookup($pid) {
     include './dev/credentials.php';
-    include './dev/bigdiscounts/connect.php';
+    include './dev/cors.php';
     // Suppress warnings
     error_reporting(0);
     // session_start();

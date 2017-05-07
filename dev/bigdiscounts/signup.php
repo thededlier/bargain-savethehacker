@@ -1,5 +1,5 @@
 <?php
-include './connect.php';
+include '../cors.php';
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 	// Get data
